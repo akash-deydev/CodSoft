@@ -1,0 +1,105 @@
+.navbar {
+  display: flex;
+  padding: 0.5rem 1.5rem;
+  justify-content: space-between;
+  align-items: center;
+  height: 10vh;
+  background-color: #F1FAEE;
+  color: #1d3557;
+  font-size: 1.1rem;
+}
+
+.navbar ul a {
+  text-decoration: none;
+  color: #1d3557;
+  transform: scale(10px);
+}
+
+#app-logo {
+  font-size: 2rem;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  cursor: pointer;
+}
+
+.navbar button {
+  outline: none;
+  border: none;
+  padding: 10px;
+  background-color: #8ADADC;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+.login-page {
+  display: flex;
+  height: 90vh;
+  justify-content: center;
+  align-items: center;
+  background-color: #457B9D;
+}
+
+.login-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30vw;
+  height: 60vh;
+  padding: 1.5rem 2.5rem;
+  border-radius: 5px;
+  background-color: #F1FAEE;
+}
+
+.login-container input {
+  border: none;
+  display: block;
+  outline: none;
+  width: 300px;
+  background-color: #8ADADC;
+  padding: 1rem 2rem 1rem 0.5rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+}
+
+.login-container button {
+  border: none;
+  outline: none;
+  background-color: #E63946;
+  padding: .5rem 1rem;
+  border-radius: 4px;
+  color: #F1FAEE;
+  font-weight: bold;
+  font-synthesis: style;
+}
+
+a {
+  text-decoration: none;
+  color: #E63946;
+  border-bottom: 1px solid transparent;
+}
+
+a:hover {
+  border-bottom: 1px solid #E63946;
+}
+
+.quiz-creation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid red;
+  
+}
+
+.quiz-creation h2 {
+  font-size: 2rem;
+}
+
+.quiz-creation form label {
+  display: block;
+}

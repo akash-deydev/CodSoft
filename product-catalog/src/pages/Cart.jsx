@@ -1,6 +1,7 @@
 import { useCart } from "../context/CartContext";
 import { AiFillDelete } from "react-icons/ai";
 import toast, { Toaster } from "react-hot-toast";
+import Footer from "../components/Footer";
 
 const Cart = () => {
   const {
@@ -101,6 +102,7 @@ const Cart = () => {
           Checkout
         </button>
       </div>
+      <Footer />
     </div>
   );
 };

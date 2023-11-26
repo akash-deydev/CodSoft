@@ -10,21 +10,21 @@ const Footer = () => {
         <div style={{ borderBottom: "1px solid red", paddingBottom: "5px" }}>
           Shop Matcha
         </div>
-        <p>Just the Match</p>
-        <p>The Trail Kit</p>
-        <p>Wholesale & Bulk</p>
-        <p>Teaware</p>
+        <p className="footer-links">Just the Match</p>
+        <p className="footer-links">The Trail Kit</p>
+        <p className="footer-links">Wholesale & Bulk</p>
+        <p className="footer-links">Teaware</p>
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
         <div style={{ borderBottom: "1px solid red", paddingBottom: "5px" }}>
           More From Shoppers Stop
         </div>
-        <p>Our Story</p>
-        <p>Blog</p>
-        <p>Affiliate</p>
-        <p>Contact Us</p>
-        <p>FAQ's</p>
-        <p>Sign In</p>
+        <p className="footer-links">Our Story</p>
+        <p className="footer-links">Blog</p>
+        <p className="footer-links">Affiliate</p>
+        <p className="footer-links">Contact Us</p>
+        <p className="footer-links">FAQ's</p>
+        <p className="footer-links">Sign In</p>
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
         <div
@@ -42,15 +42,33 @@ const Footer = () => {
         </div>
         <h4>Follow Us</h4>
         <div>
-          <AiFillFacebook size="2rem" style={{ marginRight: "10px" }} />
-          <AiFillInstagram size="2rem" style={{ marginRight: "10px" }} />
-          <AiFillGithub size="2rem" style={{ marginRight: "10px" }} />
-          <FaXTwitter size="2rem" style={{ marginRight: "10px" }} />
+          <AiFillFacebook
+            size="2rem"
+            style={{ marginRight: "10px" }}
+            className="footer-links"
+          />
+          <AiFillInstagram
+            size="2rem"
+            style={{ marginRight: "10px" }}
+            className="footer-links"
+          />
+          <AiFillGithub
+            size="2rem"
+            style={{ marginRight: "10px" }}
+            className="footer-links"
+          />
+          <FaXTwitter
+            size="2rem"
+            style={{ marginRight: "10px" }}
+            className="footer-links"
+          />
         </div>
 
         <div>
-          <span>Terms of Service</span> | <span>Privacy Policy</span> |{" "}
-          <span>Refund Policy</span> | <span>Accessibility Policy</span>
+          <span className="footer-links">Terms of Service</span> |{" "}
+          <span className="footer-links">Privacy Policy</span> |{" "}
+          <span className="footer-links">Refund Policy</span> |{" "}
+          <span className="footer-links">Accessibility Policy</span>
         </div>
       </div>
     </footer>

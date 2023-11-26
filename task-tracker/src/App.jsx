@@ -1,9 +1,10 @@
-import "./App.css";
 import { useState, useEffect } from "react";
 import { AiFillEdit } from "react-icons/ai";
 import { AiFillDelete } from "react-icons/ai";
 import { BsBookmarkCheckFill } from "react-icons/bs";
 import { BsBookmarkXFill } from "react-icons/bs";
+import "./App.css";
+import toast, { Toaster } from "react-hot-toast";
 
 function App() {
   const [tasks, setTasks] = useState([]);
@@ -22,6 +23,7 @@ function App() {
     if (taskIndex === -1) {
       setTasks([...tasks, { taskTitle, isComplete: false }]);
       setTaskTitle("");
+      toast.success("Task added");
     } else {
       const updatedTasks = [...tasks];
       updatedTasks[taskIndex] = {
@@ -31,12 +33,14 @@ function App() {
       setTasks(updatedTasks);
       setTaskIndex(-1);
       setTaskTitle("");
+      toast.success("Task updated successfully");
     }
   };
 
   const deleteTask = (taskId) => {
     const updatedTasks = tasks.filter((task, index) => index !== taskId);
     setTasks(updatedTasks);
+    toast.error("Task Deleted Successfully");
   };
 
   const editTask = (taskId) => {
@@ -48,6 +52,11 @@ function App() {
     const updatedTasks = [...tasks];
     updatedTasks[taskId].isComplete = !updatedTasks[taskId].isComplete;
     setTasks(updatedTasks);
+    if (updatedTasks[taskId].isComplete === true) {
+      toast.success("Task Completed", { icon: "👍" });
+    } else {
+      toast.error("Task marked incomplete", { icon: "😒" });
+    }
   };
 
   const noOfIncompleteTasks = () => {
@@ -63,31 +72,36 @@ function App() {
 
   return (
     <div className="taskTracker-app">
+      <Toaster />
       <div className="tasks-count">
         <div>Total No of Tasks: {tasks.length}</div>
         <div>Incomplete Tasks: {incompleteTask}</div>
       </div>
-      <h1>Task Tracker</h1>
-
-      <input
-        type="text"
-        placeholder="Add a new task"
-        value={taskTitle}
-        onChange={(e) => setTaskTitle(e.target.value)}
-      />
-      <button onClick={addTask}>
-        {taskIndex === -1 ? "Add Task" : "Update Task"}
-      </button>
+      <div className="task-form">
+        <h1>Task Tracker</h1>
+        <div>
+          <input
+            type="text"
+            placeholder="Add a new task"
+            value={taskTitle}
+            onChange={(e) => setTaskTitle(e.target.value)}
+          />
+          <button onClick={addTask}>
+            {taskIndex === -1 ? "Add Task" : "Update Task"}
+          </button>
+        </div>
+      </div>
       <div className="tasks-container">
         {tasks.map((task, index) => {
           return (
             <div
-              className={`task ${
+              className={`task-box ${
                 task.isComplete ? "completed-task" : "incomplete-task"
               }`}
-              key={index}
             >
-              {task.taskTitle}
+              <div className="task" key={index}>
+                {task.taskTitle}
+              </div>
               <div className="task-buttons">
                 <AiFillEdit
                   className="edit-btn"
@@ -114,7 +128,7 @@ function App() {
         })}
       </div>
       <footer>
-        <div>Copyright © 2023 - Akash</div>
+        <div>Copyright © 2023 - Akash Dey</div>
       </footer>
     </div>
   );

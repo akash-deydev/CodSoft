@@ -1,27 +1,35 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 1rem;
+* {
+  box-sizing: border-box;
 }
 
-
-.taskTracker-app {
-  text-align: center;
-  height: 90vh;
-}
-
-.taskTracker-app h1 {
-  font-size: 4rem;
+body {
+  padding: 0;
   margin: 0;
 }
 
 .tasks-count {
   display: flex;
   justify-content: space-between;
+  padding: 0 2rem;
+  align-items: center;
   font-size: 1.5rem;
+  height: 10vh;
 }
 
-.taskTracker-app input {
+.task-form {
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.task-form h1 {
+  font-size: 4rem;
+  margin: 0;
+}
+
+.task-form input {
   height: 5vh;
   border-radius: 4px;
   width: 220px;
@@ -31,8 +39,8 @@
   font-size: 1rem;
 }
 
-.taskTracker-app button {
-  height: 5.4vh;
+.task-form button {
+  height: 5.2vh;
   background-color: #9c3587;
   font-weight: bold;
   border: none;
@@ -42,29 +50,38 @@
 
 .tasks-container {
   display: flex;
-  gap: 20px;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1rem;
   margin: 20px auto;
   flex-wrap: wrap;
-  min-height: 60vh;
+  min-height: 49vh;
+  padding: 0 2rem;
 }
 
-
-.task {
+.task-box {
   border: 1px solid #9c3587;
-  border-radius: 6px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  min-width: 25vw;
-  height: 10vh;
-  text-align: center;
+  border-radius: 6px;
   padding: 1rem;
+  width: 30vw;
+  min-height: 10vh;
+}
+
+
+.task {
+  max-width: 25vw;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .completed-task {
   border-left: 5px solid green;
   text-decoration: line-through;
+  color: gray;
 }
 
 .incomplete-task {
@@ -99,14 +116,15 @@
 footer {
   color: gray;
   font-size: 1.2rem;
+  text-align: center;
 }
 
 
 /* Media Query */
 
-/* @media screen and (min-width: 480px) {
+@media (max-width: 768px) {
   .tasks-count {
     font-size: 1rem;
   }
   
-} */
+}

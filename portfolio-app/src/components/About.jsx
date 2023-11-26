@@ -3,7 +3,7 @@ import { FaUniversity } from "react-icons/fa";
 
 const About = () => {
   return (
-    <div>
+    <div id="about">
       <div className="section-head">
         <h5>Get to know more</h5>
         <h3 className="animate">About Me</h3>

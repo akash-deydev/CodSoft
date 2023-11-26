@@ -1,3 +1,5 @@
+/* Navbar Styling */
+
 .navbar {
     display: flex;
     align-items: center;
@@ -7,31 +9,54 @@
     font-size: 1.5rem;
 }
 
+.navbar a {
+    color: black;
+}
+
 .author-name {
     font-weight: bold;
     font-size: 1.7rem;
 }
 
-.navbar ul {
+.navbar .nav-links {
     list-style: none;
     display: flex;
     gap: 25px;
 }
 
-.navbar ul li {
+.navbar .nav-links li {
     padding-bottom: 5px;
-    border-bottom: 1px solid transparent;
-    
+    border-bottom: 1px solid transparent; 
+     
 }
 
-.navbar ul li:hover {
+.navbar .nav-links li a {
+    text-decoration: none;
+    color: black; 
+}
+
+.navbar .nav-links li a:hover {
     color: gray;
     border-bottom: 1px solid gray;
     padding-bottom: 5px;
 }
 
+.navbar .show-nav-btn {
+    position: absolute;
+    right: 1.5rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+}
 
-.hero {
+.navbar .hide-nav-btn {
+    display: none;
+}
+
+
+.intro {
     display: flex;
     height: 90vh;
     justify-content: center;
@@ -39,7 +64,7 @@
     gap: 8rem;
 }
 
-.hero img {
+.intro img {
     border-radius: 50%;
     height: 450px;
     width: 450px;
@@ -47,30 +72,30 @@
     margin-right: auto;
 }
 
-.hero #firstLine {
-    font-size: 25px;
+.intro #firstLine {
+    font-size: 2rem;
     color: gray;
     text-align: center;
 }
 
-.hero #my-name {
-    font-size: 50px;
+.intro #my-name {
+    font-size: 3rem;
     font-weight: bold;
     display: flex;
     justify-content: center;
 }
 
-.hero #role {
+.intro #role {
     color: gray;
-    font-size: 35px;
+    font-size: 1.8rem;
     text-align: center;
 }
 
-.hero .contact-btns {
+.intro .contact-btns {
     text-align: center;
 }
 
-.hero #primary-btn{
+.intro #primary-btn{
     padding: 1rem;
     border-radius: 50px;
     width: 130px;
@@ -84,14 +109,14 @@
     margin-top: 1rem;
 }
 
-.hero #primary-btn:hover {
+.intro #primary-btn:hover {
     background-color: rgb(53, 53, 53);
     color: #fff;
     border: 1.5px solid transparent;
     transition: 0.3s all ease-in-out;
 }
 
-.hero #secondary-btn{
+.intro #secondary-btn{
     padding: 1rem;
     border-radius: 50px;
     width: 130px;
@@ -105,7 +130,7 @@
     margin-top: 1rem;
 }
 
-.hero #secondary-btn:hover {
+.intro #secondary-btn:hover {
     background-color: black;
 }
 
@@ -127,7 +152,7 @@
     }
   }
 
-.hero .social-links {
+.intro .social-links {
     font-size: 2rem;
     padding: 1rem;
     display: flex;
@@ -158,8 +183,8 @@
 }
 
 .about-section img {
-    width: 400px;
-    height: 400px;
+    width: 450px;
+    height: 450px;
     border-radius: 2rem;
 }
 
@@ -197,7 +222,7 @@
 }
 
 .projects .project-card {
-    width: 34vw;
+    width: 35vw;
     height: 80vh;
     border: 2px solid gray;
     border-radius: 2rem;
@@ -236,6 +261,8 @@
     border: 1.5px solid transparent;
     transition: 0.3s all ease-in-out;
 }
+
+/* Contact me styling */
 
 .contact-links {
     width: 35vw;
@@ -349,4 +376,68 @@
     to {
       background-position: 200% center;
     }
+  }
+
+
+
+  /* media query */
+
+  @media (max-width: 972px) {
+    .intro img {
+        height: 300px;
+        width: 300px;
+    }
+
+    .intro #firstLine {
+        font-size: 1.2rem;
+    }
+
+    .intro #my-name {
+        font-size: 2rem;
+    }
+    .intro #role {
+        font-size: 1.3rem;
+    }
+
+    .about-section img {
+        height: 300px;
+        width: 300px;
+    }
+
+    .experience {
+        width: 10rem;
+        height: 8rem;
+        font-size: 12px;
+    }
+
+    .about-me {
+        font-size: 1rem;
+    }
+
+    .exp-cat-1 {
+        width: 40vw;
+        height: 40vh;
+    }
+
+    .exp-badge {
+        font-size: .75rem;
+        margin-right: 5px;
+    }
+
+    .projects .project-card {
+        width: 35vw;
+        height: 70vh;
+    }
+
+    .project-card .project-head {
+        width: 25vw;
+        height: 40vh;
+    }
+
+    .contact-links {
+        width: 30vw;
+        display: block;
+        font-size: 1rem;
+    }
+
   }

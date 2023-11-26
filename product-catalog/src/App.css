@@ -224,7 +224,7 @@ footer {
     color: rgb(220, 230, 220);
     display: flex;
     justify-content: space-between;
-    padding: 20px 30px;
+    padding: .75rem 1rem;
     align-items: flex-start;
 }
 

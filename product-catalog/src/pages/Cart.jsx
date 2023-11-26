@@ -25,7 +25,7 @@ const Cart = () => {
       (acc, curr) => acc + curr.price * curr.qty,
       0
     );
-    return total;
+    return Number(total).toFixed(2);
   };
 
   return (

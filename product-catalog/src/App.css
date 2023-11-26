@@ -3,7 +3,7 @@
 
 .navbar {
     min-height: 10vh;
-    padding: 0 30px;
+    padding: 0 1.5rem;
     background-color: rgb(10, 20, 10);
     display: flex;
     justify-content: space-between;
@@ -11,30 +11,64 @@
     color: rgb(220, 230, 220)
 }
 
-.logo {
+.brand-logo {
     font-size: 20px;
     font-weight: bold;
 }
 
-.navbar a {
-    text-decoration: none;
-    color: rgb(220, 230, 220);
-    font-size: 20px;
+.toggle-button {
+    position: absolute;
+    right: 1.5rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
 }
 
-.navbar a:hover {
+.toggle-button .bar {
+    height: 3px;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.navbar nav {
+    display: flex;
+}
+
+.navbar nav a {
+    text-decoration: none;
+    color: rgb(220, 230, 220);
+    padding: 1rem;
+    font-size: 18px;
+}
+
+.navbar nav a:hover {
     color: rgb(180,220,220);
 }
 
-.navbar nav ul {
-    list-style: none;
-    display: flex;
-    gap: 25px;
+
+.nav-close-button {
+    display: none;
 }
+
 
 .nav-buttons {
     display: flex;
     gap: 25px;
+}
+
+.badge-wrapper {
+    position: relative;
+}
+
+.badge-wrapper span {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    color: orangered;
+    font-weight: bold;
 }
 
 /* Product Catalog Styling */
@@ -96,13 +130,25 @@
 }
 
 .card-body button {
-   height: 25px;
-   padding: 0 0.5em;
+   padding: 10px;
    border: none;
    outline: none;
    background-color: rgba(10,20,10,1);
    color: #fff;
    font-weight: bold;
+}
+
+.card-body .remove-button {
+    padding: 10px;
+   border: none;
+   outline: none;
+   background-color: red;
+   color: #fff;
+   font-weight: bold;
+}
+
+.card-body button:hover {
+    color: rgb(180,220,220);
 }
 
 /* Shopping Cart Styling */
@@ -111,6 +157,7 @@
     width: 80%;
     margin: 30px auto;
     text-align: center;
+    min-height: 50vh;
 }
 
 .cart-container table thead {
@@ -128,9 +175,6 @@
     font-size: 1.2rem;
 }
 
-.cart-container table tbody tr {
-    border-bottom: 1px solid gray;
-}
 
 .delete-item:hover {
     color: red;
@@ -140,6 +184,12 @@
     text-align: center;
     color: red;
     margin: 30px 0;
+}
+
+.cart-summary {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
 #cart-total {
@@ -156,6 +206,12 @@
 
 #checkout {
     margin: 0 auto;
+    padding: 10px;
+    border: none;
+    background-color: red;
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 1rem;
 }
 
 
@@ -164,8 +220,8 @@
 footer {
     margin-top: 20px;
     min-height: 30vh;
-    background-color: var(--navbar-color);
-    color: var(--primary-color);
+    background-color: rgb(10, 20, 10);
+    color: rgb(220, 230, 220);
     display: flex;
     justify-content: space-between;
     padding: 20px 30px;
@@ -183,7 +239,51 @@ footer .footer-form button {
     width: 80px;
     height: 5vh;
     border: none;
-    background-color: var(--button-color);
-    color: var(--secondary-color);
     font-weight: bold;
+    background-color: red;
+    color: #fff;
 }
+
+
+/* Media Queries */
+
+@media (max-width: 768px) {
+    .toggle-button {
+        display: flex;
+    }
+
+    .responsive_nav {
+		transform: translateY(100vh);
+	}
+
+    .nav-links {
+		position: fixed;
+		top: -100vh;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 1.5rem;
+		transition: 1s;
+        background-color: rgb(10, 20, 10);
+
+	}
+
+    .nav-close-button {
+        display: block;
+		position: absolute;
+		top: 2rem;
+		right: 2rem;
+	}
+
+    footer {
+        flex-direction: column;
+        gap: 20px;
+        justify-content: center;
+    }
+}
+
+

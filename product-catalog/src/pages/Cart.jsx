@@ -1,11 +1,24 @@
 import { useCart } from "../context/CartContext";
 import { AiFillDelete } from "react-icons/ai";
+import toast, { Toaster } from "react-hot-toast";
 
 const Cart = () => {
   const {
     state: { cart },
     dispatch,
   } = useCart();
+
+  const handleRemoveFromCart = (item) => {
+    dispatch({ type: "REMOVE_FROM_CART", payload: item });
+    toast.error("Product removed from cart");
+  };
+
+  const handleChangeItemQty = (quantity, itemId) => {
+    dispatch({
+      type: "CHANGE_ITEM_QTY",
+      payload: { qty: quantity, id: itemId },
+    });
+  };
 
   const calCartTotal = (itemsInCart) => {
     const total = itemsInCart.reduce(
@@ -17,6 +30,7 @@ const Cart = () => {
 
   return (
     <div className="cart-container">
+      <Toaster />
       <div style={{ textAlign: "center", marginTop: "20px" }}>
         <h1>Shopping Cart</h1>
       </div>
@@ -46,10 +60,7 @@ const Cart = () => {
                       name="qty"
                       id="qty"
                       onChange={(e) =>
-                        dispatch({
-                          type: "CHANGE_ITEM_QTY",
-                          payload: { qty: e.target.value, id: item.id },
-                        })
+                        handleChangeItemQty(e.target.value, item.id)
                       }
                     >
                       <option value={1}>1</option>
@@ -63,9 +74,7 @@ const Cart = () => {
                   <td>
                     <AiFillDelete
                       className="delete-item"
-                      onClick={() =>
-                        dispatch({ type: "REMOVE_FROM_CART", payload: item })
-                      }
+                      onClick={() => handleRemoveFromCart(item)}
                     />
                   </td>
                 </tr>
@@ -84,9 +93,11 @@ const Cart = () => {
         <div id="totals">
           <span>Cart Totals</span>
           <span>Number of items: {cart.length}</span>
-          <span>Total: ₹{calCartTotal(cart)}</span>
+          <span>
+            Sub Total: <strong>₹{calCartTotal(cart)}</strong>
+          </span>
         </div>
-        <button id="checkout" disabled={cart.length == 0 ? true : false}>
+        <button id="checkout" disabled={cart.length === 0 ? true : false}>
           Checkout
         </button>
       </div>
